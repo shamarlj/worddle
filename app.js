@@ -6,6 +6,7 @@ const keyboard = [
     "ASDFGHJKL".split(''),
     "ZXCVBNM"  .split('')
 ]   
+keyboard[2].shift('enter');
 
 window.addEventListener('keyup', logKey);
 

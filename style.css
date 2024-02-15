@@ -28,7 +28,7 @@ gap: 6px;
 
 .key{
     background-color:  rgb(129,131,132);
-    widen: 25px;
+   min-width: width 25px;
     height: 58x;
     border-radius: 5px;
     text-align: center;
