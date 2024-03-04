@@ -1,4 +1,4 @@
-const secret = "aback";
+const secret = "ABACK";
 const letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase();
 const alpha = new Set(letters.split(''));
 
@@ -17,23 +17,25 @@ let attempt = 0;
 window.addEventListener('keyup', logKey);
 
 function logKey(evt) {
-  console.log(evt);
+  console.log(evt); 
+  let matches=[0,0,0,0,0];
 
   if(evt.key.toUpperCase() == "ENTER") {
     console.log('submit');
     if (attempt < 6 && tries [attempt].length == 5) {
+      matches=evaluate(tries[attempt]);
       attempt++;
       }
    }
 
   if (evt.key.toUpperCase() == "BACKSPACE") {
-    console.lot('deleting');
+    console.log('deleting');
     tries[attempt].pop();
   }
   if (alpha.has(evt.key.toUpperCase())) {
     if (tries[attempt].length < [5]) {
       tries [attempt].push(evt.key.toUpperCase() )
-      render();
+      render(matches);
     }
       
   } else {
@@ -52,7 +54,8 @@ keyboard[2].push(`BACK`);
 
 
 
-function render() {
+function render(matches) {
+  console.log(matches)
   const main = document.querySelector('#root');
   let board = `<div class="board">`;
 
@@ -60,7 +63,7 @@ function render() {
 
   
   for (let j=0; j<5; j++) {
-    board += `<div>${ tries[i][j] ? tries[i][j] : ""}</div>`;
+    board += `<div class="match${ matches[i]}">${ tries[i][j] ? tries[i][j] : ""}</div>`;
   }
   }
   board += `</div>`;
@@ -80,7 +83,24 @@ function render() {
   main.innerHTML = board + keyTemplate;
 
   console.log(main);
+}
+function evaluate(guess) {
+  console.log(guess)
+  let matches = []
+  for (let i=0; i<guess.length;i++) {
+    let found = 0;
+    console.log(guess[i], secret[i]);
 
+    if (guess[i] == secret[i]){
+      found = 2;
+    } else if (secret.includes(guess[i])) {
+      found = 1;
+    }
+    matches.push(found);
+
+  }
+  return matches;
 }
 
-render()
+
+render([0,0,0,0,0]);

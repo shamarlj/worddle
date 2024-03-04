@@ -44,7 +44,7 @@ gap: 6px;
     width: 300px;
     height: 360px;
     grid-template-columns: repeat(5,1fr);
-    margin: auto auto 25px auto;
+      margin: auto auto 25px auto;
 }
 
 
@@ -52,5 +52,18 @@ gap: 6px;
     border: rgb(58, 58, 60) solid 1px;
     width: 52px;
     height: 52px; 
+    line-height: 52px;
+    text-align: center;
+    font-family: "libre Fraklin",sans-serif;
+    font-weight: "bold";
+    font-size: 1.25em;;
+} 
+
+.match2 {
+    background-color: green
+
+}
+.match1 {
+    background-color: orange;
 }
 
